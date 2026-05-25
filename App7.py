@@ -1154,14 +1154,7 @@ elif menu == "📝 Quiz Fisika":
                 else:
                     st.info(f"📖 **Pembahasan:** {q['pembahasan']}")
 
-            else:  # isian
-                user_answer = st.text_input(
-                    f"Jawaban Anda (Soal {idx+1}):",
-                    key=f"isian_{idx}",
-                    disabled=answered
-                )
-
-                else:  # isian
+                        else:  # isian
                 user_answer = st.text_input(
                     f"Jawaban Anda (Soal {idx+1}):",
                     key=f"isian_{idx}",
@@ -1191,9 +1184,8 @@ elif menu == "📝 Quiz Fisika":
                         else:
                             st.warning("⚠️ Masukkan jawaban terlebih dahulu!")
                 else:
-                    # Menampilkan pembahasan jika soal sudah terjawab
                     st.info(f"📖 **Pembahasan:** {q['pembahasan']}")
-
+                    
     # Tombol Reset Quiz di bagian paling bawah halaman
     st.markdown("---")
     if st.button("🔄 Reset Quiz", type="secondary"):
