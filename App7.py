@@ -1161,29 +1161,6 @@ elif menu == "📝 Quiz Fisika":
                     disabled=answered
                 )
 
-                if not answered:
-                    if st.button(f"✅ Submit Jawaban Soal {idx+1}", key=f"btn_isian_{idx}"):
-                        if user_answer.strip():
-                            st.session_state.quiz_answered.add(idx)
-                            try:
-                                user_val = float(user_answer.strip().replace(',', '.'))
-                                correct_val = float(q['jawaban'].replace(',', '.'))
-                                if abs(user_val - correct_val) < 0.01 * max(abs(correct_val), 1):
-                                    st.session_state.quiz_score += 1
-                                    st.success("✅ Benar!")
-                                else:
-                                    st.error(f"❌ Salah! Jawaban yang benar: **{q['jawaban']}**")
-                            except:
-                                if user_answer.strip().lower() == q['jawaban'].strip().lower():
-                                    st.session_state.quiz_score += 1
-                                    st.success("✅ Benar!")
-                                else:
-                                    st.error(f"❌ Salah! Jawaban yang benar: **{q['jawaban']}**")
-                            st.info(f"📖 **Pembahasan:** {q['pembahasan']}")
-                            st.rerun()
-                        else:
-                            st.warning("⚠️ Masukkan jawaban terlebih dahulu!")
-                            
                 else:  # isian
                 user_answer = st.text_input(
                     f"Jawaban Anda (Soal {idx+1}):",
